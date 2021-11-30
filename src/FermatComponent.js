@@ -22,21 +22,18 @@ class FermatComponent extends Component {
                 <h1>Fermat test</h1>
                 <p>Wartość powinna być wyższa niż 10^9 jeżeli będzie mniejsza zostanie ustawiona wartość domyślna</p>
                 <input placeholder="Wpisz numer maksymalny" value={this.state.max}
-                       onChange={(e) => {
-                           if(e.target.value % 2 ===0) {
-                               this.setState({maxValidation:"Numer nieparzysty"})
-                           }
-                           this.setState({max: e.target.value})
-                       }}/>
-                <p>{this.state.maxValidation}</p>
+                       onChange={(e) => this.setState({max: e.target.value})}/>
+                <br/>
                 <input placeholder="Wpisz numer lub wylosuj" value={this.state.number}
-                       onChange={(e) => this.setState({number:e.target.value})}/>
-
+                       onChange={(e) => {
+                           this.setState({number:e.target.value})
+                       }}/>
+                <br/>
                 <button onClick={(e) => this.generateNumber(e)}>Kliknij by wylosować</button>
-
+                <br/>
                 <input placeholder="Wpisz liczbę prób"
                        onChange={(e) => this.setState({numberOfTries: e.target.value})}/>
-
+                <br/>
                 <button onClick={(e) => this.fermat(e)}>Test</button>
                 {numbers}
                 <p>{this.state.result}</p>
@@ -53,7 +50,7 @@ class FermatComponent extends Component {
     generateNumber(e) {
         let max = this.state.max;
         this.setState({testedNumbers:[]})
-        if (!max) {
+        if (!max || max < Math.pow(10, 9)) {
             max = Math.pow(10, 9);
         }
         let number;
@@ -82,20 +79,22 @@ class FermatComponent extends Component {
 
     fermat(e) {
         let number = this.state.number;
+        if(number% 2 ===0) {
+            this.setState({result:"Prosze zmienic numer na nieparzysty"});
+            return;
+        }
         let numberToTry = [];
         for (let i = 0; i < this.state.numberOfTries; i++) {
             numberToTry.push(this.getRandomInt(3, number -1))
         }
 
         this.setState({testedNumbers: numberToTry})
-        const isTrue = this.state.testedNumbers.every(toTry => {
+        const isTrue = numberToTry.every(toTry => {
             if(this.nwd(toTry, number) > 1){
               return true;
             }
-            if((Math.pow(toTry, number -1) % number) !== 1){
-              return true;
-            }
-            return false;
+            return (Math.pow(toTry, number - 1) % number) !== 1;
+
         })
         this.setState({result: !isTrue ? "Liczba jest pierwsza" : "Liczba złożona"});
         console.log(isTrue);

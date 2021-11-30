@@ -4,6 +4,7 @@ import {Component} from "react";
 import PeselComponent from "./PeselComponent";
 import LuhnaComponent from "./LuhnaComponent";
 import FermatComponent from "./FermatComponent";
+import KluczeComponent from "./KluczeComponent";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
               <Link to="/fermat">Test fermata</Link>
             </li>
             <li>
-              <Link to="/zad4">Zad4</Link>
+              <Link to="/klucze">Generowanie kluczy</Link>
             </li>
             <li>
               <Link to="/zad5">Zad5</Link>
@@ -38,9 +39,9 @@ function App() {
             <Route path="/fermat">
               <FermatComponent/>
             </Route>
-            {/*<Route path="/zad4">*/}
-            {/*  <VigenereComponent/>*/}
-            {/*</Route>*/}
+            <Route path="/klucze">
+              <KluczeComponent/>
+            </Route>
             {/*<Route path="/zad5">*/}
             {/*  <PlayfairComponent/>*/}
             {/*</Route>*/}
