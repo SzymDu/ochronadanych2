@@ -5,6 +5,7 @@ import PeselComponent from "./PeselComponent";
 import LuhnaComponent from "./LuhnaComponent";
 import FermatComponent from "./FermatComponent";
 import KluczeComponent from "./KluczeComponent";
+import CRCComponent from "./CRCComponent";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
               <Link to="/klucze">Generowanie kluczy</Link>
             </li>
             <li>
-              <Link to="/zad5">Zad5</Link>
+              <Link to="/crc">CRC</Link>
             </li>
           </ul>
           <hr/>
@@ -42,9 +43,9 @@ function App() {
             <Route path="/klucze">
               <KluczeComponent/>
             </Route>
-            {/*<Route path="/zad5">*/}
-            {/*  <PlayfairComponent/>*/}
-            {/*</Route>*/}
+            <Route path="/crc">
+              <CRCComponent/>
+            </Route>
           </Switch>
         </div>
       </Router>
