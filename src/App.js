@@ -6,6 +6,7 @@ import LuhnaComponent from "./LuhnaComponent";
 import FermatComponent from "./FermatComponent";
 import KluczeComponent from "./KluczeComponent";
 import CRCComponent from "./CRCComponent";
+import RSAComponent from "./RSAComponent";
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
             <li>
               <Link to="/crc">CRC</Link>
             </li>
+            <li>
+              <Link to="/rsa">RSA</Link>
+            </li>
           </ul>
           <hr/>
           <Switch>
@@ -45,6 +49,9 @@ function App() {
             </Route>
             <Route path="/crc">
               <CRCComponent/>
+            </Route>
+            <Route path="/rsa">
+              <RSAComponent/>
             </Route>
           </Switch>
         </div>

@@ -17,6 +17,9 @@ class KluczeComponent extends Component {
             <p>Wygenerowany klucz prywatny N: {this.state?.generatedKey?.privateKey?.n}</p>
             <p>Wygenerowany klucz publiczny E: {this.state?.generatedKey?.publicKey?.e}</p>
             <p>Wygenerowany klucz publiczny N: {this.state?.generatedKey?.publicKey?.n}</p>
+            <p>Wygenerowany klucz publiczny N: {this.state?.generatedKey?.publicKey?.n}</p>
+            <p>Wygenerowany Q: {this.state?.generatedKey?.q}</p>
+            <p>Wygenerowany P: {this.state?.generatedKey?.p}</p>
                 </>)
         } else
         return (
